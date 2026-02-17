@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
+  context: path.resolve(__dirname), // Proje kökü; komutu nereden çalıştırırsan çalıştır aynı kalır
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -16,6 +18,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        parser: { sourceType: 'module' }, // ES6 import/export kullanımı için
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'], // CSS'leri JS'e gömer
       },
@@ -24,4 +31,5 @@ module.exports = {
   devServer: {
     watchFiles: ['./src/template.html'], // HTML değişince de sayfayı yeniler
   },
+
 };

@@ -3,11 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Webpack Template</title>
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <h1>Hello World</h1>
-</div>
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <span>Loading...</span>
+    </div>
+
+    <div class="main-container">
+        <header class="header">
+            <h1 class="app-title">Weather</h1>
+            <form id="search-form" class="search-form">
+                <input type="text" id="city-input" placeholder="Search city..." required autocomplete="off">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <button id="unit-toggle" class="btn btn-ghost" type="button">°C / °F</button>
+        </header>
+
+        <main id="weather-display" class="weather-card">
+            <h2 id="location-name" class="location-name">Enter a city</h2>
+            <div class="temp-row">
+                <span id="temperature" class="temperature">--</span>
+                <img id="weather-gif" class="weather-gif" src="" alt="">
+            </div>
+            <p id="condition" class="condition">—</p>
+            <div class="details">
+                <span id="humidity" class="detail-item">Humidity: --</span>
+                <span id="wind-speed" class="detail-item">Wind: --</span>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
